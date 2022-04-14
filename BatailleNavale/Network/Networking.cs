@@ -1,4 +1,5 @@
-﻿namespace BatailleNavale
+﻿
+namespace BatailleNavale
 {
     public class Networking
     {
@@ -6,31 +7,37 @@
         public static void Server()
         {
             Console.OutputEncoding = Encoding.UTF8;
-            int received;
+            int recv;
             byte[] data = new byte[1024];
             IPEndPoint ip = new IPEndPoint(IPAddress.Parse("192.168.1.51"), 49221);
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(ip);
-            socket.Listen(1);
-            Console.WriteLine("Connexion en attente...");
+            socket.Listen(10);
+            Console.WriteLine("Waiting for a client...");
             Socket client = socket.Accept();
-            Console.WriteLine("Connecté !");
+            Console.WriteLine("Connected");
+
+            string welcome = "Welcome to my test server";
+            data = Encoding.UTF8.GetBytes(welcome);
+            client.Send(data, data.Length, SocketFlags.None);
+
             //string input;
             while (true)
             {
                 data = new byte[1024];
-                received = client.Receive(data);
-                Console.WriteLine("Entrez des coordonnées (de A0 à J9)");
-                Console.WriteLine("Client: " + Encoding.UTF8.GetString(data, 0, received));
+                recv = client.Receive(data);
+                Console.WriteLine("Entrez des coordonnées au format x");
+                Console.WriteLine("Client: " + Encoding.UTF8.GetString(data, 0, recv));
                 input = Console.ReadLine();
                 if (input == "exit")
                     break;
                 //else if (verif == false)
                 //    input = "c'est encore à toi";
-                Console.WriteLine("Vous: " + input);
+                //int[] nb = Process.Converting.convertion();
+                //Console.WriteLine("You: " + nb[0] + "" + nb[1]);
                 client.Send(Encoding.UTF8.GetBytes(input));
             }
-            Console.WriteLine("Déconnecté !");
+            Console.WriteLine("Disconnected");
             client.Close();
             socket.Close();
             Console.ReadLine();
@@ -41,37 +48,38 @@
             Console.OutputEncoding = Encoding.UTF8;
             byte[] data = new byte[1024];
             string stringData;
-            IPEndPoint ip = new IPEndPoint(IPAddress.Parse("192.168.1.14"), 60299);
+            IPEndPoint ip = new IPEndPoint(IPAddress.Parse("192.168.1.51"), 49221);
             Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
                 server.Connect(ip);
-                Console.WriteLine("Connecté !");
+                Console.WriteLine("Connected");
             }
             catch
             {
-                Console.WriteLine("Connexion impossible.");
+                Console.WriteLine("Unable to connect to server.");
                 return;
             }
-            int received = server.Receive(data);
+            int recv = server.Receive(data);
             while (true)
             {
                 input = Console.ReadLine();
                 if (input == "exit")
                     break;
-                //if (verif == false)
-                //    input = "c'est encore à toi";
-                Console.WriteLine("Vous: " + input);
+               // int[] nb = Process.Converting.convertion();
+                //Console.WriteLine("You: " + nb[0] + "" + nb[1]);
+
                 server.Send(Encoding.UTF8.GetBytes(input));
+
                 data = new byte[1024];
-                received = server.Receive(data);
-                Console.WriteLine("Entrez des coordonnées (de A0 à J9)");
-                Console.WriteLine("Serveur: " + Encoding.UTF8.GetString(data, 0, received));
+                recv = server.Receive(data);
+                stringData = Encoding.UTF8.GetString(data, 0, recv);
+                Console.WriteLine("Server: " + stringData);
             }
-            Console.WriteLine("Déconnexion du serveur");
+            Console.WriteLine("Disconnecting from server...");
             server.Shutdown(SocketShutdown.Both);
             server.Close();
-            Console.WriteLine("Déconnecté !");
+            Console.WriteLine("Disconnected!");
             Console.ReadLine();
         }
     }

@@ -2,10 +2,10 @@
 
 namespace BatailleNavale
 {
-    public class Process
+    public static class Process
     {
 
-        public int[] convertion(string input)
+        public static int[] convertion(string input)
         {
             string alphabet = "ABCDEFGHIJKLMNOP";
             int i = 0;
@@ -21,7 +21,7 @@ namespace BatailleNavale
 
 
 
-        public bool CorrectCoords(Cell[][] grid, string coords)
+        public static bool CorrectCoords(Cell[][] grid, string coords)
         {
             if (coords.Count() != 2)
             {
@@ -66,7 +66,7 @@ namespace BatailleNavale
         /// <param name="Allboats"> le tableau de bateaux de mon joueur</param>
         /// <param name="coords"> les coordonnées données par l'input</param>
         /// <returns></returns>
-        public int BeenTarget(Cell[][] grid, List<Boat> Allboats, int[] coords)
+        public static int BeenTarget(Cell[][] grid, List<Boat> Allboats, int[] coords)
         {
 
             Cell myCell = grid[coords[0]][coords[1]];
@@ -98,17 +98,19 @@ namespace BatailleNavale
 
         }
 
-        public void AnswerTarget(int answer, Cell[][] gridOpponent, int[] coords)
+        public static void AnswerTarget(int answer, Cell[][] gridOpponent, int[] coords)
         {
             Cell myCell = gridOpponent[coords[0]][coords[1]];
             switch (answer)
             {
                 case 0:
-
+                    Console.WriteLine("loupé");
                     break;
                 case 1:
+                    Console.WriteLine("touché");
                     break;
                 case 2:
+                    Console.WriteLine("coulé");
                     break;
             }
         }
@@ -116,10 +118,9 @@ namespace BatailleNavale
 
 
         /////////////////////////////// PLACEMENT BATEAUX ////////////////////////////////////////////
-        public void PutBoats(Cell[][] grid, List<Boat> boats)
+        public static void PutBoats(Cell[][] grid, List<Boat> boats)
         {
-            GridView.PrintEmptyGrid(0, 0);
-            GridView.PrintEmptyGrid(50, 0);
+           
 
             foreach (var boat in boats)
             {
@@ -129,9 +130,9 @@ namespace BatailleNavale
             }
         }
 
-        private void PutOneBoat(Cell[][] grid, Boat boat)
+        private static void PutOneBoat(Cell[][] grid, Boat boat)
         {
-           
+            Displays.Display(grid,1);
 
             Console.WriteLine("\nEntrez Les coordonnées du bateau X : ");
             int x = int.Parse(Console.ReadLine()!);
@@ -157,12 +158,12 @@ namespace BatailleNavale
                 else
                 {
                     DirectionChoice(grid, myCell, boat);
-                    //Console.Clear();
-                    BoatView.PrintBoat(boat, ConsoleColor.Red);
+                    Console.Clear();
+                    
                 }
             }
         }
-        private void DirectionChoice(Cell[][] grid, Cell myCell, Boat boat)
+        private static void DirectionChoice(Cell[][] grid, Cell myCell, Boat boat)
         {
             Console.WriteLine("Entrez une direction (N,S,E,O) :");
             string direction = Console.ReadLine()!.ToUpper();
@@ -258,7 +259,7 @@ namespace BatailleNavale
                         }
                     }
                     break;
-                case "O":
+                case "W":
                     if ((myCell.CoordX + boat.Size - 1) < 1)
                     {
                         Console.WriteLine("ca sort de la grille !");

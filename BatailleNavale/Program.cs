@@ -10,37 +10,30 @@ namespace BatailleNavale
         {
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 
-            Player player1 = new Player();
-            player1.InitGrid();
-            player1.InitBoat();
+            Player playerMy = new Player();
+            playerMy.InitGrid();
+            playerMy.InitBoat();
 
-            Player player2 = new Player();
-            player2.InitGrid();
+            Player Opponent = new Player();
+            Opponent.InitGrid();
+
+            //process.PutBoats(player1.Grid, player1.ListOfBoats);
+
+            Networking.Server();
             
-
-            Process process = new();
-
-            process.PutBoats(player1.Grid, player1.ListOfBoats);
            
-            //while (true)
-            //{
-            //    //Displays.Display(Player.Grid);
-            //    //process.Target(Player.Grid);
-
-            //    Console.Clear();
-            //}
-
-            //GridView.PrintEmptyGrid(0, 0);
-            //GridView.PrintEmptyGrid(50, 0);
+            bool coordsNotOK = true;
+            
+            while (coordsNotOK)
+            {
+                Process.CorrectCoords(playerMy.Grid, string coords);
 
 
-           
-            /*BoatView.PrintBoat(boat1, ConsoleColor.Green);
-            BoatView.PrintBoat(boat2, ConsoleColor.Yellow);
-            BoatView.PrintBoat(boat3, ConsoleColor.Magenta);
-            BoatView.PrintBoat(boat4, ConsoleColor.DarkCyan);
 
-*/
+                Console.Clear();
+            }
+            Displays.Display(player1.Grid);
+
             UtilView.WriteAt("All done!", 0, 50, ConsoleColor.Green);
             //Console.WriteLine();
 
