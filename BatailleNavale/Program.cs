@@ -1,4 +1,4 @@
-﻿
+﻿using BatailleNavale.Network;
 using BatailleNavale.View;
 
 namespace BatailleNavale
@@ -10,31 +10,20 @@ namespace BatailleNavale
         {
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 
-            Player playerMy = new Player();
-            playerMy.InitGrid();
-            playerMy.InitBoat();
-
-            Player Opponent = new Player();
-            Opponent.InitGrid();
-
-            //process.PutBoats(player1.Grid, player1.ListOfBoats);
-
-            Networking.Server();
-            
-           
-            bool coordsNotOK = true;
-            
-            while (coordsNotOK)
-            {
-                Process.CorrectCoords(playerMy.Grid, string coords);
 
 
+            //reseau-process
 
-                Console.Clear();
-            }
-            Displays.Display(player1.Grid);
+            MenuView menuvue = new();
+           // GetAddrIP.GetIp();
 
-            UtilView.WriteAt("All done!", 0, 50, ConsoleColor.Green);
+            //affichage -prosecc
+
+
+            //Process.PutBoats(playerMy.Grid, playerMy.ListOfBoats);//placement de bateaux
+
+
+            UtilView.WriteAt("connexion terminée!", 0, 50, ConsoleColor.Red);
             //Console.WriteLine();
 
 

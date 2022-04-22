@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arthur\\source\\repos\\BatailleNavale-affichage\\BatailleNavale\\BatailleNavale.csproj": {}
+    "C:\\Users\\enkod\\Documents\\Formation MANU\\Dev Formation\\Dotnet\\EnCours\\BatailleNavale-master\\BatailleNavale\\BatailleNavale.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arthur\\source\\repos\\BatailleNavale-affichage\\BatailleNavale\\BatailleNavale.csproj": {
+    "C:\\Users\\enkod\\Documents\\Formation MANU\\Dev Formation\\Dotnet\\EnCours\\BatailleNavale-master\\BatailleNavale\\BatailleNavale.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arthur\\source\\repos\\BatailleNavale-affichage\\BatailleNavale\\BatailleNavale.csproj",
+        "projectUniqueName": "C:\\Users\\enkod\\Documents\\Formation MANU\\Dev Formation\\Dotnet\\EnCours\\BatailleNavale-master\\BatailleNavale\\BatailleNavale.csproj",
         "projectName": "BatailleNavale",
-        "projectPath": "C:\\Users\\Arthur\\source\\repos\\BatailleNavale-affichage\\BatailleNavale\\BatailleNavale.csproj",
-        "packagesPath": "C:\\Users\\Arthur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arthur\\source\\repos\\BatailleNavale-affichage\\BatailleNavale\\obj\\",
+        "projectPath": "C:\\Users\\enkod\\Documents\\Formation MANU\\Dev Formation\\Dotnet\\EnCours\\BatailleNavale-master\\BatailleNavale\\BatailleNavale.csproj",
+        "packagesPath": "C:\\Users\\enkod\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enkod\\Documents\\Formation MANU\\Dev Formation\\Dotnet\\EnCours\\BatailleNavale-master\\BatailleNavale\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Arthur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\enkod\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

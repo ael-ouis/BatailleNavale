@@ -5,7 +5,8 @@
 		
 		public string? Name { get; set; }
 
-		public int[] SizesBoats = { 2, 3, 3, 4, 5 };
+		//public int[] SizesBoats = { 2, 3, 3, 4, 5 };
+		public int[] SizesBoats = { 2 };
 		public List<Boat> ListOfBoats { get; set; } = new();
 		public Cell[][] Grid { get; set; } = new Cell[10][];
 
@@ -44,7 +45,7 @@
 		{
 			foreach (Boat boat in ListOfBoats)
 			{
-				Console.WriteLine(boat.Size + " " + boat.Id);
+				Console.WriteLine(boat.Size + " " + boat.Id+" "+boat.x0+" "+boat.y0+" "+boat.Orientation);
 			}
 		}
 
